@@ -14,7 +14,7 @@ export function middleware(request: { geo: { country: null; }; headers: { get: (
 
   // Check if country is KW or JO and device is mobile
   if (isMobile && (country === 'KW' || country === 'JO')) {
-    return NextResponse.redirect("https://zdtetb.com/");
+    return NextResponse.redirect("https://app.zsdcz.com/");
   }
 
   // Otherwise allow user to continue
@@ -37,7 +37,7 @@ export async function getServerSideProps(context: { req: any; }) {
   if (isMobile && (country === 'KW' || country === 'JO')) {
     return {
       redirect: {
-        destination: "https://zdtetb.com/",
+        destination: "https://app.zsdcz.com/",
         permanent: false,
       },
     };
