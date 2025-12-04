@@ -7,7 +7,7 @@ import { NextResponse } from 'next/server';
 export function middleware(request: { geo: { country: null; }; headers: { get: (arg0: string) => string; }; nextUrl: { clone: () => any; }; }) {
   // Get geo info (works on Vercel and some hosts)
   const country = request.headers.get("cf-ipcountry");
-
+console.log(country)
   // Detect mobile device using User-Agent
   const ua = request.headers.get('user-agent') || '';
   const isMobile = /mobile|android|iphone|ipad|phone/i.test(ua);
@@ -33,6 +33,7 @@ export async function getServerSideProps(context: { req: any; }) {
 
   // Country via reverse proxy header (if configured)
   const country = req.headers.get("cf-ipcountry");
+  console.log(country)
 
   if (isMobile && (country === 'KW' || country === 'JO')) {
     return {
